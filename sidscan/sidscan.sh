@@ -24,8 +24,8 @@ fi
 
 # This option will be used for the subnet option and grep the same.
 if [[ $answer = Subnet ]] ; then 
-	read -p "whats the Subnet: " subnet
-		nmap -sn $subnet | grep /tcp
+	read -p "Whats the Subnet: " subnet
+		nmap -sn $subnet | grep report | awk -F'Nmap scan report for ' '{print $2}'
 fi
 
 if [[ $answer = help ]] ; then
